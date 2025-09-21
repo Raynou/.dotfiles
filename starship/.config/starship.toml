@@ -1,0 +1,11 @@
+# Inserts a blank line between shell prompts
+add_newline = true
+
+format = '''
+[Raynou ](#ffa7c4) $all'''
+
+[character]
+success_symbol = "🌸[-](bold green)"
+
+[container]
+disabled = true

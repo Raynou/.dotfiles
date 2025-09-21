@@ -1,0 +1,7 @@
+[core]
+  autocrlf = input
+[user]
+  email = 49658683+Raynou@users.noreply.github.com
+  name = raynou
+[init]
+  defaultBranch = main
