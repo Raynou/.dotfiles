@@ -21,7 +21,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 
 # Load my mouse profile
-CONF_FILE="./mouse_profile.conf"
+CONF_FILE="$HOME/.config/mouse_profile.conf"
 if [ -f CONF_FILE ]; then
   PROFILE="$(<"$CONF_FILE")"
   DEV="$(ratbagctl list | awk -F: 'NF{print $1; exit}')"
@@ -36,6 +36,8 @@ export REPOS='~/workspace/repositories'
 export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'
 # Sets default editor as neovim
 export VISUAL=nvim
+# Loads bin folder to path
+export PATH="$HOME/bin:$PATH"
 
 # Custom functions
 
@@ -76,6 +78,7 @@ alias jc='join_container'
 alias sc='start_container'
 alias c='code'
 alias f='ranger'
+alias icat='kitten icat'
 
 # Start ssh-agent
 # eval "$(ssh-agent -s)" # Disable because is unsafe use it

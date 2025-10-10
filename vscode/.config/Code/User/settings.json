@@ -2,5 +2,7 @@
     "workbench.colorTheme": "Kawaii Theme",
     "workbench.iconTheme": "catppuccin-mocha",
     "editor.fontLigatures": true,
-    "editor.fontFamily": "'CaskaydiaCove Nerd Font','Droid Sans Mono', 'monospace', monospace"
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font','Droid Sans Mono', 'monospace', monospace",
+    "terminal.external.linuxExec": "/usr/bin/kitty",
+    "debug.javascript.autoAttachFilter": "onlyWithFlag"
 }
