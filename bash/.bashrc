@@ -29,3 +29,8 @@ eval "$(ssh-agent -s)"
 # Starship
 eval "$(starship init bash)"
 . "$HOME/.cargo/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/raynou/.lmstudio/bin"
+# End of LM Studio CLI section
+

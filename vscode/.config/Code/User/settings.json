@@ -4,5 +4,11 @@
     "editor.fontLigatures": true,
     "editor.fontFamily": "'CaskaydiaCove Nerd Font','Droid Sans Mono', 'monospace', monospace",
     "terminal.external.linuxExec": "/usr/bin/kitty",
-    "debug.javascript.autoAttachFilter": "onlyWithFlag"
+    "debug.javascript.autoAttachFilter": "onlyWithFlag",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

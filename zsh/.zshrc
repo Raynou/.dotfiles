@@ -38,6 +38,8 @@ export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --borde
 export VISUAL=nvim
 # Loads bin folder to path
 export PATH="$HOME/bin:$PATH"
+# Add .NET Core SDK tools
+export PATH="$PATH:/home/raynou/.dotnet/tools"
 
 # Custom functions
 
@@ -93,3 +95,14 @@ export NVM_DIR="$HOME/.nvm"
 
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Created by `pipx` on 2025-10-29 07:20:53
+export PATH="$PATH:/home/raynou/.local/bin"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/raynou/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# Start containers
+docker start sql-server
+
