@@ -9,3 +9,6 @@ success_symbol = "🌸[-](bold green)"
 
 [container]
 disabled = true
+
+[gcloud]
+disabled = true

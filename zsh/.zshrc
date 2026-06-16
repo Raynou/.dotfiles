@@ -14,11 +14,10 @@ compinit
 # End of lines added by compinstall
 
 # The following lines were added by the user
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
 
 # Load my mouse profile
 CONF_FILE="$HOME/.config/mouse_profile.conf"
@@ -43,6 +42,25 @@ export PATH="$PATH:/home/raynou/.dotnet/tools"
 
 # Custom functions
 
+function lazygit() {
+    if [[ -z "$KITTY_WINDOW_ID" ]]; then
+        command lazygit "$@"
+        return
+    fi
+
+    local lockfile="/tmp/kitty_small_font"
+    local count=$(cat "$lockfile" 2>/dev/null || echo 0)
+    echo $((count + 1)) > "$lockfile"
+    [[ $count -eq 0 ]] && kitten @ set-font-size 10
+
+    command lazygit "$@"
+
+    count=$(cat "$lockfile" 2>/dev/null || echo 1)
+    local new_count=$((count - 1))
+    echo $new_count > "$lockfile"
+    [[ $new_count -eq 0 ]] && kitten @ set-font-size 0
+}
+
 function join_container() {
     name="$(docker ps --format '{{.Names}}' |\
     awk '{print $1}' |\
@@ -66,7 +84,26 @@ function start_container() {
     fi
 }
 
+function list_packages() {
+  while getopts "f" opt; do
+    case $opt in
+      f) FOREIGNS=true;;
+      *) return;;
+    esac
+  done
+
+  if [ "${FOREIGNS}" == true ]; then
+    # List foreign packages without version
+    pacman -Qqm
+  else
+    # List official repos packages without version
+    pacman -Qqe
+  fi
+}
+
 # Aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 alias ..='cd ..'
 alias v='nvim'
 alias pbcopy='xsel --clipboard --input'
@@ -81,6 +118,10 @@ alias sc='start_container'
 alias c='code'
 alias f='ranger'
 alias icat='kitten icat'
+alias plist='list_packages'
+alias lg='lazygit'
+alias fetch='fastfetch'
+alias lk='lazydocker'
 
 # Start ssh-agent
 # eval "$(ssh-agent -s)" # Disable because is unsafe use it
@@ -102,7 +143,4 @@ export PATH="$PATH:/home/raynou/.local/bin"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/raynou/.lmstudio/bin"
 # End of LM Studio CLI section
-
-# Start containers
-docker start sql-server
 

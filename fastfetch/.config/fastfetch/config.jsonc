@@ -6,7 +6,6 @@
     "os",
     "host",
     "kernel",
-    "uptime",
     "packages",
     "shell",
     "display",
@@ -14,8 +13,6 @@
     "wm",
     "wmtheme",
     "theme",
-    "icons",
-    "font",
     "terminal",
     "terminalfont",
     "cpu",
@@ -24,5 +21,19 @@
     "bios",
     "break",
     "colors"
-  ]
+  ],
+  "logo": {
+    "type": "file",
+    "source": "/home/raynou/.config/fastfetch/cat_logo.ansi.txt",
+    "color": {"1": "#f5bde6"},
+    "padding": {
+      "top": 3
+    }
+  },
+  "display": {
+    "color": {
+      "keys": "#7dc4e4",
+      "title": "#f5bde6"
+    }
+  }
 }
